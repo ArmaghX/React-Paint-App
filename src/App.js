@@ -1,11 +1,10 @@
 import React from 'react';
 
-const App = () => {
-    return (
-        <h1>
-            Create React App without CRA
-        </h1>
-    )
-};
+import Playground from './Playground';
+import Paint from './components/Paint';
+
+function App() {
+    return <Paint />
+}
 
 export default App;
