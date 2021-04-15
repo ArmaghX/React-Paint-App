@@ -3,6 +3,7 @@ import randomColor from 'randomcolor';
 
 import Name from './Name';
 import ColorPicker from './ColorPicker';
+import WindowSize from './WindowSize';
 
 export default function Paint() {
     const [colors, setColors] = useState([]);
@@ -32,6 +33,9 @@ export default function Paint() {
                     activeColor={activeColor}
                     setActiveColor={setActiveColor}
                 />
+            </div>
+            <div>
+                <WindowSize />
             </div>
         </header>
     )
