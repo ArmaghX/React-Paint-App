@@ -4,14 +4,15 @@ import randomColor from 'randomcolor';
 import Name from './Name';
 import ColorPicker from './ColorPicker';
 import RefreshButton from './RefreshButton';
+import Canvas from './Canvas';
 
-import useWindowSize from './WindowSize';
+import useWindowSize from '../hooks/useWindowSize';
 
 export default function Paint() {
     const [colors, setColors] = useState([]);
     const [activeColor, setActiveColor] = useState(null);
     const [visible, setVisible] = useState(false);
-    
+
     let timeoutId = useRef()
     const [windowWidth, windowHeight] = useWindowSize(() => {
         setVisible(true)
@@ -45,6 +46,13 @@ export default function Paint() {
                 />
                 <RefreshButton cb={getColors} />
             </div>
+            {activeColor && (
+                <Canvas
+                    color={activeColor}
+                    width={windowWidth}
+                    height={windowHeight}
+                />
+            )}
             <div className={`window-size ${visible ? '' : 'hidden'}`}>
                 {windowWidth} x {windowHeight}
             </div>
